@@ -1,0 +1,15 @@
+{
+  "name": "ai-project-architect",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "npm --prefix frontend install",
+    "backend": "cd backend && ../.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000",
+    "frontend": "cd frontend && npm run dev -- --host 0.0.0.0",
+    "dev": "concurrently -k \"npm run backend\" \"npm run frontend\"",
+    "build": "npm --prefix frontend run build"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
